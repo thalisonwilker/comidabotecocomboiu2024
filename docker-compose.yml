@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  proxy:
+    container_name: proxy
+    image: nginx:1.20
+    restart: always
+
+    ports:
+      - 3001:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      #- ./nginx/build:/var/www/html
+      - ./nginx/access.log:/var/log/nginx_access.log
+      - ./nginx/error.log:/var/log/nginx_error.log
+    depends_on:
+      - api
+
+  api:
+    container_name: api
+    image: python:3.9
+    build: .
+    restart: always
+    volumes:
+      - ./api:/app
+
+    command: bash -c "pip install --upgrade pip && python -m pip install gunicorn && python manage.py collectstatic && python manage.py makemigrations && python manage.py migrate && gunicorn config.wsgi:application -b :8000"
+
