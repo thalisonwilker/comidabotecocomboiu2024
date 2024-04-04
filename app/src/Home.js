@@ -65,11 +65,10 @@ const LogoComidaBotecoSectionBares = styled.img`
 `;
 const ImgTextBares = styled.img`
   max-width: 600px;
-  rotate: -3deg
+  rotate: -3deg;
 `;
 const ImgLogoSicoobBares = styled.img`
   max-width: 400px;
-  
 `;
 const SectionBaresWrapperBares = styled.div`
   display: flex;
@@ -82,11 +81,10 @@ const SectionBaresBarAvatar = styled.img`
   height: 250px;
   padding: 0px;
   border-radius: 50%;
-  cursor: pointer;
 `;
 export default (props) => {
-  function go(to){
-    window.location.href = to
+  function go(to) {
+    window.location.href = to;
   }
   return (
     <Container>
@@ -103,16 +101,16 @@ export default (props) => {
           <ImgLogoSicoobBares src={logoSicoob} />
         </SectionBaresWrapperInfo>
         <SectionBaresWrapperBares>
-          <SectionBaresBarAvatar onClick={()=>go("TORO")} src={toroBurguer} />
-          <SectionBaresBarAvatar onClick={()=>go("CORONEL")} src={coronelBier} />
-          <SectionBaresBarAvatar onClick={()=>go("SHOKAN")} src={shokan} />
-          <SectionBaresBarAvatar onClick={()=>go("BARDOTRAUKO")} src={trauku} />
+          <SectionBaresBarAvatar src={toroBurguer} />
+          <SectionBaresBarAvatar src={coronelBier} />
+          <SectionBaresBarAvatar src={shokan} />
+          <SectionBaresBarAvatar src={trauku} />
         </SectionBaresWrapperBares>
         <SectionBaresWrapperBares>
-          <SectionBaresBarAvatar onClick={()=>go("TEMPERIAMINEIRA")} src={temperiaMineira} />
-          <SectionBaresBarAvatar onClick={()=>go("PUBPIZZARIADORICARDO")} src={pubPizza} />
-          <SectionBaresBarAvatar onClick={()=>go("LAVILLAGOURMET")} src={laVila} />
-          <SectionBaresBarAvatar onClick={()=>go("CASAVELHACREPERIA")} src={casaVelha} />
+          <SectionBaresBarAvatar src={temperiaMineira} />
+          <SectionBaresBarAvatar src={pubPizza} />
+          <SectionBaresBarAvatar src={laVila} />
+          <SectionBaresBarAvatar src={casaVelha} />
         </SectionBaresWrapperBares>
       </Section>
       <Section name="pratos" img={fundo3}></Section>
