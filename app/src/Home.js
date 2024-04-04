@@ -7,7 +7,9 @@ import logoEvento from "./assets/img/bares/logo_comida_de_buteco.png";
 import logoSicoob from "./assets/img/bares/logo_sicoob.png";
 
 import baresText from "./assets/img/bares/text_bares_participantes.png";
+import pratosText from "./assets/img/bares/texto_pratos_2024.png";
 
+// bares 
 import toroBurguer from "./assets/img/bares/toro.png";
 import coronelBier from "./assets/img/bares/coronel_bier.png";
 import shokan from "./assets/img/bares/shokan.png";
@@ -16,6 +18,16 @@ import pubPizza from "./assets/img/bares/pub_pizzaria_ricardo.png";
 import laVila from "./assets/img/bares/la_vila_gourmet.png";
 import casaVelha from "./assets/img/bares/casa_velha.png";
 import temperiaMineira from "./assets/img/bares/temperia_mineira.png";
+
+// pratos
+import toroBurguerPrato from "./assets/img/bares/toro_prato.png";
+import coronelBierPrato from "./assets/img/bares/coronel_bier_prato.png";
+import shokanPrato from "./assets/img/bares/shokan_prato.png";
+import traukuPrato from "./assets/img/bares/bar_do_trauku_prato.png";
+import pubPizzaPrato from "./assets/img/bares/pub_pizzaria_ricardo_prato.png";
+import laVilaPrato from "./assets/img/bares/la_vila_gourmet_prato.png";
+import casaVelhaPrato from "./assets/img/bares/casa_velha_prato.png";
+import temperiaMineiraPrato from "./assets/img/bares/temperia_mineira_prato.png";
 
 const Container = styled.div``;
 
@@ -59,13 +71,35 @@ const LogoComidaDeBoteco = styled.img`
 const SectionBaresWrapperInfo = styled.div`
   display: flex;
   justify-content: space-around;
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 const LogoComidaBotecoSectionBares = styled.img`
-  max-width: 400px;
+max-width: 400px;
+@media (max-width: 700px) {
+  max-width: 200px;
+  align-self: center;
+}
 `;
 const ImgTextBares = styled.img`
   max-width: 600px;
   rotate: -3deg;
+  @media (max-width: 700px) {
+    max-width: 200px;
+    align-self: center;
+  }
+`;
+const ImgTextPratos = styled.img`
+max-width: 800px;
+  margin-bottom: -30px;
+  @media (max-width: 700px) {
+    max-width: 400px;
+  }
+  @media (max-width: 700px) {
+    max-width: 200px;
+    align-self: center;
+  }
 `;
 const ImgLogoSicoobBares = styled.img`
   max-width: 400px;
@@ -75,6 +109,11 @@ const SectionBaresWrapperBares = styled.div`
   justify-content: space-around;
   padding-top: 20px;
   padding-bottom: 20px;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const SectionBaresBarAvatar = styled.img`
   width: 250px;
@@ -113,7 +152,23 @@ export default (props) => {
           <SectionBaresBarAvatar src={casaVelha} />
         </SectionBaresWrapperBares>
       </Section>
-      <Section name="pratos" img={fundo3}></Section>
+      <Section name="pratos" img={fundo2}>
+        <SectionBaresWrapperInfo>
+          <ImgTextPratos src={pratosText} />
+        </SectionBaresWrapperInfo>
+        <SectionBaresWrapperBares>
+          <SectionBaresBarAvatar src={toroBurguerPrato} />
+          <SectionBaresBarAvatar src={coronelBierPrato} />
+          <SectionBaresBarAvatar src={shokanPrato} />
+          <SectionBaresBarAvatar src={traukuPrato} />
+        </SectionBaresWrapperBares>
+        <SectionBaresWrapperBares>
+          <SectionBaresBarAvatar src={pubPizzaPrato} />
+          <SectionBaresBarAvatar src={laVilaPrato} />
+          <SectionBaresBarAvatar src={casaVelhaPrato} />
+          <SectionBaresBarAvatar src={temperiaMineiraPrato} />
+        </SectionBaresWrapperBares>
+      </Section>
       <Section name="save-the-date" img={saveTheDate} />
     </Container>
   );
