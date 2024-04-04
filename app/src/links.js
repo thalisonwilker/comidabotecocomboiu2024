@@ -7,10 +7,10 @@ export default (props) => {
       <div>
         <p>Rotas</p>
         {bares.map((bar) => {
-          return <button onClick={() => navigate("/" + bar)}>{bar}</button>;
+          return <button onClick={() => window.location.href = "/" + bar}>{bar}</button>;
         })}
       </div>
-      <button onClick={() => navigate("/")}>inicio</button>
+      <button onClick={() => window.location.href = "/"}>inicio</button>
     </div>
   );
 };
