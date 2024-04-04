@@ -16,6 +16,7 @@ services:
       - ./nginx/error.log:/var/log/nginx_error.log
       - ${NGINX_SSL_FULLCHAIN}:/home/fullchain.pem
       - ${NGINX_SSL_PRIVKEY}:/home/privkey.pem
+      - ./nginx/assets:/usr/share/nginx/html
     depends_on:
       - comida-boteco-api
 
