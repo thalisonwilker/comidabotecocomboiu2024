@@ -43,6 +43,6 @@ table {
 	border-spacing: 0;
 }
 
-.container-home{
-    width: 100% !important;
-}
+* {
+	font-family: "Roboto", sans-serif;
+  }
