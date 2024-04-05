@@ -11,7 +11,6 @@ import bares from "./bares";
 const rotas = bares.map((bar) => {
   return {
     path: "/" + bar,
-    exact: true,
     element: <Bar />,
   };
 });
