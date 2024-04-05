@@ -305,8 +305,11 @@ export default (props) => {
         return;
       }
     }
-
-    axios.post(url, { bar, ...voto, cpf }).catch((error) => {
+    setLoading(true)
+    axios.post(url, { bar, ...voto, cpf }).then(resp=>{
+      alert("Voto Registrado! Obrigado por participar!!");
+    }).catch((error) => {
+      setLoading(false)
       alert("Não é possível votar neste bar com este CPF!");
     });
   }
