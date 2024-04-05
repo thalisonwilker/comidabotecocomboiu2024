@@ -21,7 +21,7 @@ class VotosViewSets(ModelViewSet):
         return Response({}, status=200 if ja_votou == False else 400)
 
     @action(detail=False, methods=["GET"], url_path="relatorio")
-    def validate(self, request, pk=None):
+    def relatorio(self, request, pk=None):
         chave = request.GET.get("chave", "")
         if(not chave or chave != "Q9@JmG18dtOfAq"):
             return Response({}, status=401)
