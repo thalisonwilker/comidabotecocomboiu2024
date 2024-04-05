@@ -7,4 +7,4 @@ WORKDIR /app
 
 COPY ./api /app
 
-RUN pip install --no-cache-dir openpyxl  djangorestframework django && python manage.py collectstatic
+RUN pip install --no-cache-dir openpyxl django-cors-headers djangorestframework django && python manage.py collectstatic
