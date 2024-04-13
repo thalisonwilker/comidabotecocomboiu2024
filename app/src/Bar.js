@@ -27,6 +27,7 @@ import temperiaMineiraPrato from "./assets/img/bares/temperia_mineira_prato.png"
 
 import logoEvento from "./assets/img/bares/logo_comida_de_buteco.png";
 import logoSicoob from "./assets/img/bares/logo_sicoob.png";
+import voltar from "./assets/img/voltar.png";
 
 import axios from "axios";
 
@@ -90,11 +91,11 @@ const Header = styled.div`
   }
 `;
 const BarLogo = styled.img`
-max-height: 200px;
-@media (max-width: 700px) {
-  max-height: 100px;
-  margin-top: -20px;
-}
+  max-height: 200px;
+  @media (max-width: 700px) {
+    max-height: 100px;
+    margin-top: -20px;
+  }
 `;
 const ItemRight = styled.div`
   display: flex;
@@ -127,7 +128,7 @@ const VoteSection = styled.div`
   align-items: center;
   align-self: center;
   @media (max-width: 700px) {
-    flex-direction: column-reverse
+    flex-direction: column-reverse;
   }
 `;
 const VoteSectionImgVoteItem = styled.div`
@@ -204,7 +205,7 @@ const InputCPF = styled(InputMask)`
     cursor: not-allowed;
     padding: 10px;
     @media (max-width: 700px) {
-      font-size: .7em;
+      font-size: 0.7em;
       padding: 4px;
     }
   }
@@ -238,7 +239,21 @@ const StyledButton = styled.button`
   }
   @media (max-width: 700px) {
     padding: 8px 16px;
-    font-size: .7em;
+    font-size: 0.7em;
+  }
+`;
+
+const Voltar = styled.div`
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+
+  img {
+    max-width: 30px;
+  }
+  > p {
+    color: white;
+    margin-left: 10px;
   }
 `;
 export default (props) => {
@@ -306,13 +321,16 @@ export default (props) => {
         return;
       }
     }
-    setLoading(true)
-    axios.post(url, { bar, ...voto, cpf }).then(resp=>{
-      alert("Voto Registrado! Obrigado por participar!!");
-    }).catch((error) => {
-      setLoading(false)
-      alert("Não é possível votar neste bar com este CPF!");
-    });
+    setLoading(true);
+    axios
+      .post(url, { bar, ...voto, cpf })
+      .then((resp) => {
+        alert("Voto Registrado! Obrigado por participar!!");
+      })
+      .catch((error) => {
+        setLoading(false);
+        alert("Não é possível votar neste bar com este CPF!");
+      });
   }
 
   function init() {
@@ -325,14 +343,22 @@ export default (props) => {
     <Container>
       <Section img={fundo5}>
         <Header>
-          <BarLogo src={siteName.logo} />
+          <div>
+            <BarLogo src={siteName.logo} />
+            <Voltar onClick={() => window.location.href = "/"}>
+              <img src={voltar} />
+              <p>voltar</p>
+            </Voltar>
+          </div>
           <ItemRight>
             <ItemRightImg src={logoSicoob} />
             <ItemRightImg src={logoEvento} />
           </ItemRight>
         </Header>
         <InputCPFWrapper>
-          <InputCPFText className="text-digite-o-cpf">Digite o CPF para votar</InputCPFText>
+          <InputCPFText className="text-digite-o-cpf">
+            Digite o CPF para votar
+          </InputCPFText>
           <InputCPF
             disabled={!podeVotar || loading}
             onChange={onChangeCPF}
@@ -446,7 +472,7 @@ const VoteLabel = styled.label`
   font-weight: 900;
   color: white;
   @media (max-width: 700px) {
-    font-size: .8em;
+    font-size: 0.8em;
   }
 `;
 
@@ -462,7 +488,7 @@ const Ring = styled.div`
   @media (max-width: 700px) {
     width: 6px;
     height: 6px;
-    font-size: .9em;
+    font-size: 0.9em;
   }
   ${(props) => {
     if (props.selected) {
