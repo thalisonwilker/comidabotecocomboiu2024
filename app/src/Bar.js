@@ -156,8 +156,9 @@ const VoteSectionImgVoteContainer = styled.div`
 const VoteSectionImgVote = styled.div``;
 const VoteSectionImgVoteItemText = styled.h3`
   color: white;
+  font-size: 1.3em;
   @media (max-width: 700px) {
-    font-size: .8em;
+    font-size: 1.3em;
   }
 `;
 
@@ -170,10 +171,10 @@ const InputCPFText = styled.label`
   text-transform: uppercase;
   margin-bottom: 10px;
   color: #ffeaa7;
-  font-size: 1.4em;
+  font-size: 2em;
   font-weight: 900;
   @media (max-width: 700px) {
-    font-size: .7em;
+    font-size: 1.1em;
   }
 `;
 
@@ -209,7 +210,7 @@ const InputCPF = styled(InputMask)`
   }
 
   @media (max-width: 700px) {
-    font-size: .7em;
+    font-size: 1.1em;
     padding: 4px;
   }
 `;
