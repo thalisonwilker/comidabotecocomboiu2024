@@ -346,10 +346,6 @@ export default (props) => {
         <Header>
           <div>
             <BarLogo src={siteName.logo} />
-            <Voltar onClick={() => (window.location.href = "/")}>
-              <img src={voltar} />
-              <p>voltar</p>
-            </Voltar>
           </div>
           <ItemRight>
             <ItemRightImg src={logoSicoob} />
