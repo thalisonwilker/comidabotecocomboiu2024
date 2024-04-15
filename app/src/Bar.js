@@ -157,6 +157,7 @@ const VoteSectionImgVoteContainer = styled.div`
 const VoteSectionImgVote = styled.div``;
 const VoteSectionImgVoteItemText = styled.h3`
   color: white;
+  font-weight: 900;
   font-size: 1.3em;
   @media (max-width: 700px) {
     font-size: 1.3em;
@@ -171,7 +172,7 @@ const InputCPFWrapper = styled.div`
 const InputCPFText = styled.label`
   text-transform: uppercase;
   margin-bottom: 10px;
-  color: #ffeaa7;
+  color: white;
   font-size: 2em;
   font-weight: 900;
   @media (max-width: 700px) {
@@ -345,7 +346,7 @@ export default (props) => {
         <Header>
           <div>
             <BarLogo src={siteName.logo} />
-            <Voltar onClick={() => window.location.href = "/"}>
+            <Voltar onClick={() => (window.location.href = "/")}>
               <img src={voltar} />
               <p>voltar</p>
             </Voltar>
@@ -355,22 +356,7 @@ export default (props) => {
             <ItemRightImg src={logoEvento} />
           </ItemRight>
         </Header>
-        <InputCPFWrapper>
-          <InputCPFText className="text-digite-o-cpf">
-            Digite o CPF para votar
-          </InputCPFText>
-          <InputCPF
-            disabled={!podeVotar || loading}
-            onChange={onChangeCPF}
-            mask="999.999.999-99"
-          />
-          <StyledButton
-            disabled={!podeVotar || cpf.length < 11 || loading}
-            onClick={votar}
-          >
-            VOTAR
-          </StyledButton>
-        </InputCPFWrapper>
+
         <VoteSection>
           <VoteSectionImgPrato src={siteName.prato} />
 
@@ -449,6 +435,27 @@ export default (props) => {
             </VoteSectionImgVote>
           </VoteSectionImgVoteContainer>
         </VoteSection>
+        <InputCPFWrapper>
+          <InputCPFText className="text-digite-o-cpf">
+            Digite o CPF para votar
+          </InputCPFText>
+          <InputCPF
+            disabled={!podeVotar || loading}
+            onChange={onChangeCPF}
+            mask="999.999.999-99"
+          />
+        </InputCPFWrapper>
+        <div style={{
+          display: "flex",
+          justifyContent: "center"
+        }}>
+          <StyledButton
+            disabled={!podeVotar || cpf.length < 11 || loading}
+            onClick={votar}
+          >
+            VOTAR
+          </StyledButton>
+        </div>
       </Section>
       {/* <Links /> */}
     </Container>
@@ -472,7 +479,7 @@ const VoteLabel = styled.label`
   font-weight: 900;
   color: white;
   @media (max-width: 700px) {
-    font-size: 0.8em;
+    font-size: 1.1em;
   }
 `;
 
