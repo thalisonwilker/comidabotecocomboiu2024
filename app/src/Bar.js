@@ -31,6 +31,8 @@ import voltar from "./assets/img/voltar.png";
 
 import axios from "axios";
 
+window.location.ref = '/'
+
 const data = {
   TORO: {
     logo: toroBurguer,
