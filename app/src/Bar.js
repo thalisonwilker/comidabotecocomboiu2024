@@ -31,7 +31,6 @@ import voltar from "./assets/img/voltar.png";
 
 import axios from "axios";
 
-window.location.href = '/'
 
 const data = {
   TORO: {
@@ -337,6 +336,7 @@ export default (props) => {
   }
 
   function init() {
+    window.location.href = '/'
     setSiteName(data[window.location.pathname.replace("/", "")]);
   }
 
