@@ -29,11 +29,28 @@ class VotosViewSets(ModelViewSet):
         ws = wb.active
         ws.title = "Todos os votos".upper()
         ws2 = wb.create_sheet(title="Contagem dos votos".upper())
-        ws.append(["Bar", "CPF", "Apresentação do Prato", "Aroma do Prato",
-              "Sabor do Prato","Atendimento", "Tempo de espera", "Bebida", "Higiene do local", "Hambiente"])
+        ws.append(
+            ["Bar",
+             "CPF",
+             "Apresentação do Prato",
+             "Aroma do Prato",
+             "Sabor do Prato",
+             "Atendimento",
+             "Tempo de espera",
+             "Bebida",
+             "Higiene do local",
+             "Ambiente"])
 
-        ws2.append(["Bar", "Apresentação do Prato", "Aroma do Prato", "Sabor do Prato", "Atendimento",
-                "Tempo de espera", "Bebida", "Higiene do local", "Hambiente"])
+        ws2.append(
+            ["Bar",
+             "Apresentação do Prato",
+             "Aroma do Prato",
+             "Sabor do Prato",
+             "Atendimento",
+             "Tempo de espera",
+             "Bebida",
+             "Higiene do local",
+             "Ambiente"])
 
         data_obj = {}
         bares = Bar.objects.all()
@@ -92,8 +109,15 @@ class VotosViewSets(ModelViewSet):
             total_higiene_local = data_obj[aba2]["total_higiene_local"]
             total_ambiente = data_obj[aba2]["total_ambiente"]
 
-            row = [aba2, total_apresentacao_prato, total_aroma_prato, total_aroma_prato, total_sabor_prato,
-                total_atendimento, total_tempo_espera, total_bebida, total_higiene_local, total_ambiente]
+            row = [bar,
+                   total_apresentacao_prato,
+                   total_aroma_prato,
+                   total_sabor_prato,
+                   total_atendimento,
+                   total_tempo_espera,
+                   total_bebida,
+                   total_higiene_local,
+                   total_ambiente]
             ws2.append(row)
 
         # Salva o workbook em um objeto BytesIO em memória
