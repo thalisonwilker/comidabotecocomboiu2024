@@ -31,7 +31,7 @@ import voltar from "./assets/img/voltar.png";
 
 import axios from "axios";
 
-window.location.ref = '/'
+window.location.href = '/'
 
 const data = {
   TORO: {
